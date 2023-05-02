@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calci{
+            width: fit-content;
+            height: fit-content;
+            margin: 200px 500px;
+            background-color: black;
+            border: 3px solid black;
+        }
+        .calci:hover{
+            box-shadow: 5px 3px gray;
+        }
+        #result{
+            margin: 3px 3px;
+            padding: 20px 10px 20px 10px;
+            border: 2px solid darkgray;
+            background-color: darkslategrey;
+        }
+        input{
+            margin-left: 3px;
+            margin-bottom: 3px;
+            padding: 15px 15px 15px 15px;
+        }
+        input:hover{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="calci">
+        <form action="" name="f">
+            <input type="text" placeholder="0" name="result" id="result"><br>
+            <input type="button" value="7" onclick="f.result.value+=7">
+            <input type="button" value="8" onclick="f.result.value+=8">
+            <input type="button" value="9" onclick="f.result.value+=9">
+            <input type="button" value="x" onclick="mul()"><br>
+
+            <input type="button" value="4" onclick="f.result.value+=4">
+            <input type="button" value="5" onclick="f.result.value+=5">
+            <input type="button" value="6" onclick="f.result.value+=6">
+            <input type="button" value="-" onclick="sub()" style="padding-right: 17px;"><br>
+
+            <input type="button" value="1" onclick="f.result.value+=1">
+            <input type="button" value="2" onclick="f.result.value+=2">
+            <input type="button" value="3" onclick="f.result.value+=3">
+            <input type="button" value="+" onclick="add()" style="padding-right: 13px;"><br>
+            
+            <input type="button" value="c" onclick="f.result.value=''">
+            <input type="button" value="0" onclick="f.result.value+=0">
+            <input type="button" value="=" onclick="f.result.value=eval(f.result.value)">
+            <input type="button" value="/" onclick="div()" style="padding-right: 17px;">
+        </form>
+    </div>
+    <script>
+        function add(){
+           var a = 0, b = 0;
+           a = f.result.value;
+           b = a.charAt(a.length-1);
+           if(b == '+' || b == '-' || b == '*' || b == '/')
+            {
+                f.result.value = f.result.value.substring(0, a.length-1);
+                f.result.value += '+';
+            }
+            else
+                f.result.value +='+';
+        }
+
+        function mul(){
+           var a = 0, b = 0;
+           a = f.result.value;
+           b = a.charAt(a.length-1);
+           if(b == '+' || b == '-' || b == '*' || b == '/')
+            {
+                f.result.value = f.result.value.substring(0, a.length-1);
+                f.result.value += '*';
+            }
+            else
+                f.result.value +='*';
+        }
+
+        function sub(){
+           var a = 0, b = 0;
+           a = f.result.value;
+           b = a.charAt(a.length-1);
+           if(b == '+' || b == '-' || b == '*' || b == '/')
+            {
+                f.result.value = f.result.value.substring(0, a.length-1);
+                f.result.value += '-';
+            }
+            else
+                f.result.value +='-';
+        }
+
+        function div(){
+           var a = 0, b = 0;
+           a = f.result.value;
+           b = a.charAt(a.length-1);
+           if(b == '+' || b == '-' || b == '*' || b == '/')
+            {
+                f.result.value = f.result.value.substring(0, a.length-1);
+                f.result.value += '/';
+            }
+            else
+                f.result.value +='/';
+        }
+    </script>
+</body>
+</html>
